@@ -15,7 +15,7 @@ const props = defineProps({
 <template>
 
     <div class="loader margin-tl"></div>
-    <div class="loader-text text-center">{{text}}</div>
+    <div class="loader-text text-center text-md">{{text}}</div>
 
 </template>
 
