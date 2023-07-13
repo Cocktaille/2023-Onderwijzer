@@ -65,7 +65,7 @@ export const useBaseStore = defineStore('baseStore', () => {
 
     function selectSchool(nummer_instelling) {
         chosenSchool.value = nummer_instelling
-        currentScreen.value++
+        currentScreen.value = 2
         scrollToTop()
     }
 
@@ -95,6 +95,8 @@ export const useBaseStore = defineStore('baseStore', () => {
         }
         
     }
+
+    const ficheIsVisible = ref(true)
   
-    return { brandShortName, brandName, scrollToTop, currentScreen,  scholenAll, chosenCity, chosenCityZipCode, showShoolsPerCity, selectSchool, chosenSchool, chosenSchoolDetail, showDetailItem, toggleDetailItem }
+    return { brandShortName, brandName, scrollToTop, currentScreen,  scholenAll, chosenCity, chosenCityZipCode, showShoolsPerCity, selectSchool, chosenSchool, chosenSchoolDetail, showDetailItem, toggleDetailItem, ficheIsVisible }
   })

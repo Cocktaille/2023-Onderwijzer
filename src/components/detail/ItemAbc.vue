@@ -178,24 +178,33 @@ const vergelijkbareScholenC = ref({
     
                     <div class="col-sm-8 col-md-7 offset-md-1" >
                         <div class="mb-3 mt-3">
-                            Gemiddeld resultaat van vergelijkbare scholen
+                            <strong>Gemiddeld resultaat van vergelijkbare scholen</strong> <ToolTipper :tekst="popperStore.tooltip1" />
                         </div>
     
                         <div class="mb-3" >
                             <div class="row mb-4 " >
                                 <div class="col-4 col-md-3" style="height: auto ">
+                                    <div class="text-center text-md text-bold text-accent-orange">
+                                        ??? > ???
+                                    </div>
                                     <Pie :data="vergelijkbareScholenA" :options="chartOptionsStore.pieOptions" />
                                     <div class="text-center text-md text-bold">
                                         A-attest
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-3" style="height: auto">
+                                    <div class="text-center text-md text-bold text-accent-orange">
+                                        ??? > ???
+                                    </div>
                                     <Pie :data="vergelijkbareScholenB" :options="chartOptionsStore.pieOptions" />
                                     <div class="text-center text-md text-bold">
                                         B-attest
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-3" style="height: auto">
+                                    <div class="text-center text-md text-bold text-accent-orange">
+                                        ??? > ???
+                                    </div>
                                     <Pie :data="vergelijkbareScholenC" :options="chartOptionsStore.pieOptions" />
                                     <div class="text-center text-md text-bold">
                                         C-attest

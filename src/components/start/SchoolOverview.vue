@@ -12,12 +12,10 @@ const baseStore = useBaseStore()
 <template>
     <div class="result-wrapper">
 
-        <div @click="baseStore.currentScreen = 0 ; searchStore.userGemeenteInput = '' " class="cursor-pointer p-1 text-md text-underline">
-            <i class="fa-solid fa-circle-chevron-left"></i>  Wijzig zoekopdracht
-        </div>
+        
 
-        <div id="logoHead" class="text-center mb-3 mt-4">
-            <img src="https://nieuwsblad-onderwijzer.lwprod.nl/images/onderwijzer-logo.svg" alt="" style="margin-top:-30px">
+        <div id="logoHead" class="text-center mb-3 ">
+            
             <div class="mt-3 mb-3">
                 {{ baseStore.showShoolsPerCity.length }} resultaten gevonden in
                 <div class="brand-font-primary mt-2 ">{{ baseStore.chosenCity }}</div>
@@ -56,8 +54,8 @@ const baseStore = useBaseStore()
 </template>
 
 <style scoped>
-.result-wrapper {background:#e0e0ec; padding:20px;}
-#logoHead {background:#000068; margin:20px -20px; color:white; padding:10px;}
+.result-wrapper {background:#e0e0ec; }
+#logoHead {background:#000068; color:white; padding:20px 20px 10px 20px; }
 
 .result-item {background:white; padding:40px 20px; margin-bottom:5px; border:1px solid #d6d6d6;  }
 </style>

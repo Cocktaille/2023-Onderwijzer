@@ -17,18 +17,49 @@ function showScholenFiche() {
     scholenFicheOpen.value = !scholenFicheOpen.value
 }
 
+
+
+onMounted(() => {
+    
+    const box = document.querySelector('.fiche-top');
+
+    document.addEventListener('scroll', function () {
+        if(isInViewport(box)) {
+            console.log("isvisible")
+            baseStore.ficheIsVisible = true
+        } else {
+            baseStore.ficheIsVisible = false
+        }
+
+    }, {
+        passive: true
+    });
+})
+
+
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+    );
+}
+
+
+
 </script>
 
 <template>
     
-
+        
     
         <div style="background:#000068; height:100px"></div>
-        <div id="logo" class="text-center mb-3">
-            <img src="https://nieuwsblad-onderwijzer.lwprod.nl/images/onderwijzer-logo.svg" alt="">
-        </div>
         
-        <div class="fiche-top">
+        
+        <div class="fiche-top" style="margin-top:-70px">
             
             <div class="bg-white">
                 <div class="bg-secondarys"></div>

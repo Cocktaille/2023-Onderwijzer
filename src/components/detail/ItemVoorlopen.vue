@@ -200,7 +200,73 @@ const voorlopen_ophunjaar = ref({
                 </div>
 
 
-                sdfsdfsdfsdfsdfsdfsdfsdfsdfsdf
+                <div class="mb-3 mt-5">
+                    <strong>Gemiddeld resultaat van vergelijkbare scholen</strong> <ToolTipper :tekst="popperStore.tooltip1" />
+                </div>
+
+                <div class="row  mb-4 mt-0 text-center" style="white-space: nowrap;">
+                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                        <div class=" text-md ">
+                            Op hun jaar
+                        </div>
+                        <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
+                        <div class=" text-md text-in-pie " >
+                            {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
+                        </div>
+                        <div class="accent-color-pink text-md ">
+                            {{ baseStore.chosenSchoolDetail.Normaal }} leerlingen
+                        </div>
+                    </div>
+                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                        <div class=" text-md ">
+                            1 jaar achter
+                        </div>
+                        <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
+                        <div class="text-md text-in-pie " >
+                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                        </div>
+                        <div class="accent-color-pink  text-md ">
+                            {{ baseStore.chosenSchoolDetail.Een_jaar_achter }} leerlingen
+                        </div>
+                    </div>
+                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                        <div class=" text-md ">
+                            2 jaar achter
+                        </div>
+                        <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
+                        <div class=" text-md text-in-pie " >
+                            {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                        </div>
+                        <div class="accent-color-pink text-md ">
+                            {{ baseStore.chosenSchoolDetail.Twee_jaar_achter }} leerlingen
+                        </div>
+                    </div>
+                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                        <div class=" text-md ">
+                            > 2 jaar achter
+                        </div>
+                        <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
+                        <div class="text-md text-in-pie " >
+                            {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                        </div>
+                        <div class="accent-color-pink text-md ">
+                            {{ baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter }} leerlingen
+                        </div>
+                    </div>
+                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                        <div class="text-md ">
+                            1+ jaren voor
+                        </div>
+                        <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
+                        <div class="text-md text-in-pie " >
+                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
+                        </div>
+                        <div class="accent-color-pink text-md ">
+                            {{ baseStore.chosenSchoolDetail.Een_of_meer_voor }} leerlingen
+                        </div>
+                    </div>
+                    
+                </div>
 
 
             </div>
@@ -217,7 +283,7 @@ const voorlopen_ophunjaar = ref({
 .bar-height {max-height:200px; }
 .pie-height {min-height:140px}
 
-.text-in-pie {margin-top: -6rem;
+.text-in-pie {margin-top: -5.2rem;
     width: 100%;
     font-family: produkt;
     font-size: 1.3rem !important;

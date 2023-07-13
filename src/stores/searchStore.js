@@ -6,10 +6,12 @@ import { useBaseStore } from "@/stores/baseStore.js"
 
 export const useSearchStore = defineStore('searchStore', () => {
     const baseStore = useBaseStore();
+    
     const urlZipCodeCheck = "https://interactief2.nieuwsblad.be/WedstrijdCR/WedstrijdCR.aspx?ID=ImrsUUT17SyQumFQAEtlotww8kMSfobYJzUj3f7zkC%2Bk%2BF0SH_3jpKGWcZ0PW7gPmEzyd_e4xEVKd4&notags=1&NAME="
 
     const userGemeenteInput = ref("")
     const gemeentes = ref([])
+    const keys = {}
 
     const userCity = ref("");
     const userZipCode = ref("")

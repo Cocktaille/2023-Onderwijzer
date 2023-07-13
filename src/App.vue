@@ -28,11 +28,33 @@ const baseStore = useBaseStore()
       </div>
 
       <div v-else>
+
+        <div v-if="baseStore.currentScreen > 0 "   class="cursor-pointer p-1 text-md  fixed-header-top brand-font-primary brand-text-color-primary ">
+              
+              <div v-if="!baseStore.ficheIsVisible" class="float-right text-md text-right" style="margin-top:-10px">
+                {{ baseStore.chosenSchoolDetail.Naam }}<br />
+                {{ baseStore.chosenSchoolDetail.Gemeente }}
+              </div>
+
+
+              <div  v-if="baseStore.currentScreen == 1 " @click="baseStore.currentScreen = 0 ; searchStore.userGemeenteInput = '' ">
+                <i class="fa-solid fa-circle-chevron-left"></i>  <span class="text-underline">Wijzig zoekopdracht</span>
+              </div>
+              <div  v-if="baseStore.currentScreen == 2 " @click="baseStore.currentScreen = 1 ; searchStore.userGemeenteInput = '' ">
+                <i class="fa-solid fa-circle-chevron-left"></i>  <span class="text-underline ">Terug naar overzicht</span>
+              </div>
+              <div style="text-align:center; position:absolute; width:100%">
+                <img src="https://nieuwsblad-onderwijzer.lwprod.nl/images/onderwijzer-logo.svg" alt="" style="margin-top:-19px" />
+              </div>
+              
+          </div>
+
         <Search v-if="baseStore.currentScreen == 0 " />
         <SchoolOverview v-if="baseStore.currentScreen == 1 " />
         
         <SchoolDetail v-if="baseStore.currentScreen == 2 " />
       </div>
+      
       
       
 
@@ -52,7 +74,7 @@ const baseStore = useBaseStore()
 @import url("https://markup.gva.be/fonts/v2.0.0/fonts.css");
 
 #appwrapper {background:white}
-
+html {font-size:16px !important}
 
 /**** BRAND ****/
 
@@ -262,7 +284,15 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.28); width:320px;}
 
 #messagentWrap canvas[style] {display: inline !important;}
 
-#messagentWrap .form-control:focus  {box-shadow:none}
+#messagentWrap .form-control:focus, #messagentWrap .btn:focus  {box-shadow:none}
 
+#messagentWrap .btn-inverted {border:2px solid #000068 !important; background-color: white !important; color:#000068 !important;}
+
+
+#messagentWrap .fixed-header-top {background:#e0e0ec; position:sticky; top: 0;  z-index: 100000; padding:20px !important; max-height:60px; }
+
+#messagentWrap .form-control-lg {
+    height: calc(1.5em + 1.8rem + 2px); 
+    }
 </style>
 

@@ -6,7 +6,9 @@ import ScholenInfo from '@/components/detail/ScholenInfo.vue'
 import LoaderSpinner from '@/components/LoaderSpinner.vue'
 import ItemAbc from '@/components/detail/ItemAbc.vue'
 import ItemVoorlopen from '@/components/detail/ItemVoorlopen.vue'
+import ItemInspectie from '@/components/detail/ItemInspectie.vue'
 import LeesWijzer from '@/components/detail/LeesWijzer.vue'
+
 
 const baseStore = useBaseStore();
 
@@ -15,7 +17,7 @@ const baseStore = useBaseStore();
 </script>
 
 <template>
-    <div style="margin-top:50px">
+    <div>
         <div v-if="baseStore.chosenSchoolDetail == undefined">
             <LoaderSpinner 
                 text="Even geduld" 
@@ -35,7 +37,10 @@ const baseStore = useBaseStore();
                 <ItemVoorlopen :item="'voorlopen'" />
             </div>
             <div class="">
-                <LeesWijzer :item="'voorlopen'" />
+                <ItemInspectie :item="'inspectie'" />
+            </div>
+            <div class="">
+                <LeesWijzer :item="'leeswijzer'" />
             </div>
 
         </div>
