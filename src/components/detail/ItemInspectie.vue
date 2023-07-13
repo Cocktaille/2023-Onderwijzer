@@ -5,7 +5,7 @@ import { useChartOptionsStore } from "@/stores/chartOptions.js"
 import { usePopperStore } from "@/stores/popperStore.js"
 
 import LeesOok from '@/components/LeesOok.vue'
-import ToolTipper from '@/components/Tooltipper.vue'
+// import ToolTipper from '@/components/Tooltipper.vue'
 
 
 
