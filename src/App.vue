@@ -88,7 +88,7 @@ html {font-size:16px !important}
 #messagentWrap.hbvl .brands-font-secondary {font-family: 'Helvetica Neue Condensed' !important  }
 
 #messagentWrap.gva {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;}
-#messagentWrap.gva .brands-font-primary {font-family: FFGoodProWide, 'FFGoodProWide Fallback', Open Sans, Arial, Helvetica, sans-serif !important }
+#messagentWrap.gva .brands-font-primary {font-family: FFGoodProWide, 'FFGoodProWide Fallback', Open Sans, Arial, Helvetica, sans-serif !important; font-weight:500 }
 #messagentWrap.gva .brands-font-secondary {font-family: FGoodOTCondensed, 'FFGoodOTCondensed Fallback', Open Sans, Arial, Helvetica, sans-serif !important  }
 /**fonts**/
 
