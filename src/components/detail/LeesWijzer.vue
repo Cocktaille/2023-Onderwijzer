@@ -16,7 +16,7 @@ const showGradient = ref(true)
         
             <div class="absolute" :class="{'gradient' : showGradient}"></div>
             
-            <h3 class="d-inline brand-font-primary text-nm brand-text-color-primary ">
+            <h3 class="d-inline brands-font-primary text-nm brands-text-color-primary ">
                 Leeswijzer
             </h3> 
             <div class="d-block"></div>
@@ -39,7 +39,7 @@ const showGradient = ref(true)
 
         <div class="text-center">
             <button 
-            class="mt-3 btn btn-inverted rounded-none brand-button-color-primary border-none text-md" 
+            class="mt-3 btn btn-inverted rounded-none brands-button-color-primary border-none text-md" 
             @click="showGradient = !showGradient">
                 Lees meer <span v-if="!showGradient" class=" ml-2">
                     <i class="fa-solid fa-chevron-up"></i>

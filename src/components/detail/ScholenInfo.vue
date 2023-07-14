@@ -64,8 +64,8 @@ function isInViewport(el) {
             <div class="bg-white">
                 <div class="bg-secondarys"></div>
                 <div class="bg-tertiary"></div>
-                <div class="school-adres brand-text-color-primary">
-                    <h3 class="brand-font-primary text-lg ">{{ baseStore.chosenSchoolDetail.Naam }}</h3>
+                <div class="school-adres brands-text-color-primary">
+                    <h3 class="brands-font-primary text-lg ">{{ baseStore.chosenSchoolDetail.Naam }}</h3>
                     <p>
                         {{ baseStore.chosenSchoolDetail.Straat }} {{ baseStore.chosenSchoolDetail.Huisnummer }} {{ baseStore.chosenSchoolDetail.Busnummer }}
                         <br />
@@ -116,8 +116,8 @@ function isInViewport(el) {
                 
                 
 
-                <div class="scholenfiche brand-text-color-primary pt-3">
-                    <span class="cursor-pointer brand-font-primary text-md " @click="showScholenFiche()">Bekijk scholenfiche</span> 
+                <div class="scholenfiche brands-text-color-primary pt-3">
+                    <span class="cursor-pointer brands-font-primary text-md " @click="showScholenFiche()">Bekijk scholenfiche</span> 
                     <span v-if="scholenFicheOpen == true ">&nbsp; <i class="fa-solid fa-circle-chevron-up"></i></span>
                     <span v-if="scholenFicheOpen == false ">&nbsp; <i class="fa-solid fa-circle-chevron-down"></i></span>
                 </div>

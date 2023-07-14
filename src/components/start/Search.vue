@@ -54,7 +54,7 @@ const { results } = useFuse(input, data, options)
             </div>
 
             <div class="ow-title text-md mb-4 ">
-                <h3 class="brand-font-primary brand-text-color-primary text-bold text-lg">Het rapport van alle middelbare scholen</h3>
+                <h3 class="brands-font-primary brands-text-color-primary text-bold text-lg">Het rapport van alle middelbare scholen</h3>
             </div>
 
             <div class="text-center mt-4 mb-4">
@@ -65,7 +65,7 @@ const { results } = useFuse(input, data, options)
             
 
             <div v-if="searchForCity">
-                <div class="searchBox col-12 col-sm-8 m-auto ">
+                <div class="searchBox col-12 col-sm-12 m-auto ">
                     <input 
                         type="text" 
                         class="form-control form-control-lg rounded-none  border-none text-md" 
@@ -75,7 +75,7 @@ const { results } = useFuse(input, data, options)
                         placeholder="Vul een gemeente of postcode in"
                      />
                 </div>
-                <div class="gemeenteResults col-12 col-sm-8 m-auto text-md">
+                <div class="gemeenteResults col-12 col-sm-12 m-auto text-md">
                 
                     <div v-for="(item, index) in searchStore.gemeentes" 
                         :key="index" 
@@ -89,7 +89,7 @@ const { results } = useFuse(input, data, options)
             </div>
             <div v-if="searchForSchool">
             
-                <div class="searchBox col-12 col-sm-8 m-auto ">
+                <div class="searchBox col-12 col-sm-12 m-auto ">
                     <input 
                         type="text" 
                         class="form-control form-control-lg rounded-none  border-none text-md" 
@@ -99,7 +99,7 @@ const { results } = useFuse(input, data, options)
                         placeholder="Vul de naam van een school in, of zoek op gemeente of postcode"
                      />
                 </div>
-                <div class="gemeenteResults col-12 col-sm-8 m-auto text-md">
+                <div class="gemeenteResults col-12 col-sm-12 m-auto text-md">
                     <div class="mt-3 mb-2 text-bold" v-if="input.length > 2 ">
                         <div v-if="results.length == 0 ">Sorry, er zijn geen resultaten voor {{input}} gevonden.</div>
                         <div v-else>{{results.length}} scholen gevonden</div>
@@ -111,14 +111,14 @@ const { results } = useFuse(input, data, options)
     
                         <div class="row text-left">
                         <div class="col-12 col-sm-8">
-                            <h3 class="brand-font-primary text-lg brand-text-color-primary">{{ school.item.Naam}} </h3>
+                            <h3 class="brands-font-primary text-lg brands-text-color-primary">{{ school.item.Naam}} </h3>
                             <div>
                                 {{ school.item.Straat }} {{ school.item.Huisnummer }}<br />
                                 {{ school.item.Postcode }} {{ school.item.Gemeente }}
                             </div>
                         </div>
                         <div class="col-12 col-sm-4" style="display: flex; align-items: center;">
-                            <button class="mt-3 btn rounded-none brand-button-color-primary border-none text-md">Bekijk rapport <i class="fa-solid fa-circle-chevron-right"></i></button>
+                            <button class="mt-3 btn rounded-none brands-button-color-primary border-none text-md">Bekijk rapport <i class="fa-solid fa-circle-chevron-right"></i></button>
                         </div>
                     </div>
     

@@ -18,7 +18,7 @@ const baseStore = useBaseStore()
             
             <div class="mt-3 mb-3">
                 {{ baseStore.showShoolsPerCity.length }} resultaten gevonden in
-                <div class="brand-font-primary mt-2 ">{{ baseStore.chosenCity }}</div>
+                <div class="brands-font-primary mt-2 ">{{ baseStore.chosenCity }}</div>
             </div>
         </div>
 
@@ -27,14 +27,14 @@ const baseStore = useBaseStore()
                 <div class="result-item cursor-pointer" v-for="(item, index) in baseStore.showShoolsPerCity" :key="index" @click="baseStore.selectSchool(item.nummer_instelling)">
                     <div class="row">
                         <div class="col-12 col-sm-8">
-                            <h3 class="brand-font-primary text-lg brand-text-color-primary">{{ item.Naam}} </h3>
+                            <h3 class="brands-font-primary text-lg brands-text-color-primary">{{ item.Naam}} </h3>
                             <div>
                                 {{ item.Straat }} {{ item.Huisnummer }}<br />
                                 {{ item.Postcode }} {{ item.Gemeente }}
                             </div>
                         </div>
                         <div class="col-12 col-sm-4" style="display: flex; align-items: center;">
-                            <button class="mt-3 btn rounded-none brand-button-color-primary border-none text-md">Bekijk rapport <i class="fa-solid fa-circle-chevron-right"></i></button>
+                            <button class="mt-3 btn rounded-none brands-button-color-primary border-none text-md">Bekijk rapport <i class="fa-solid fa-circle-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>

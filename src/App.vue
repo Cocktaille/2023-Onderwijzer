@@ -29,7 +29,7 @@ const baseStore = useBaseStore()
 
       <div v-else>
 
-        <div v-if="baseStore.currentScreen > 0 "   class="cursor-pointer p-1 text-md  fixed-header-top brand-font-primary brand-text-color-primary ">
+        <div v-if="baseStore.currentScreen > 0 "   class="cursor-pointer p-1 text-md  fixed-header-top brands-font-primary brands-text-color-primary ">
               
               <div v-if="!baseStore.ficheIsVisible" class="float-right text-md text-right" style="margin-top:-10px">
                 {{ baseStore.chosenSchoolDetail.Naam }}<br />
@@ -80,26 +80,26 @@ html {font-size:16px !important}
 
 /**fonts**/
 #messagentWrap.nb {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }
-#messagentWrap.nb .brand-font-primary {font-family:Produkt,Arial,Helvetica,sans-serif !important; font-weight: bold !important;}
-#messagentWrap.nb .brand-font-secondary {font-family:Vitesse Black,sans-serif !important; }
+#messagentWrap.nb .brands-font-primary {font-family:Produkt,Arial,Helvetica,sans-serif !important; font-weight: bold !important;}
+#messagentWrap.nb .brands-font-secondary {font-family:Vitesse Black,sans-serif !important; }
 
 #messagentWrap.hbvl {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;}
-#messagentWrap.hbvl .brand-font-primary {font-family: 'Mark Pro Narrow' !important }
-#messagentWrap.hbvl .brand-font-secondary {font-family: 'Helvetica Neue Condensed' !important  }
+#messagentWrap.hbvl .brands-font-primary {font-family: 'Mark Pro Narrow' !important }
+#messagentWrap.hbvl .brands-font-secondary {font-family: 'Helvetica Neue Condensed' !important  }
 
 #messagentWrap.gva {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;}
-#messagentWrap.gva .brand-font-primary {font-family: FFGoodProWide, 'FFGoodProWide Fallback', Open Sans, Arial, Helvetica, sans-serif !important }
-#messagentWrap.gva .brand-font-secondary {font-family: FGoodOTCondensed, 'FFGoodOTCondensed Fallback', Open Sans, Arial, Helvetica, sans-serif !important  }
+#messagentWrap.gva .brands-font-primary {font-family: FFGoodProWide, 'FFGoodProWide Fallback', Open Sans, Arial, Helvetica, sans-serif !important }
+#messagentWrap.gva .brands-font-secondary {font-family: FGoodOTCondensed, 'FFGoodOTCondensed Fallback', Open Sans, Arial, Helvetica, sans-serif !important  }
 /**fonts**/
 
 /**colors**/
-#messagentWrap.nb .brand-text-color-primary { color:#000068 }
-#messagentWrap.nb .brand-text-color-secondary { color:#5811F4 }
-#messagentWrap.nb .brand-text-color-tertiary { color:#000000 }
+#messagentWrap.nb .brands-text-color-primary { color:#000068 }
+#messagentWrap.nb .brands-text-color-secondary { color:#5811F4 }
+#messagentWrap.nb .brands-text-color-tertiary { color:#000000 }
 
-#messagentWrap.nb .brand-button-color-primary { background-color:#F75821; color:white; }
-#messagentWrap.nb .brand-button-color-secondary { background-color:#5811F4; color:white; }
-#messagentWrap.nb .brand-button-color-tertiary { background-color:#000000; color:white; }
+#messagentWrap.nb .brands-button-color-primary { background-color:#F75821; color:white; }
+#messagentWrap.nb .brands-button-color-secondary { background-color:#5811F4; color:white; }
+#messagentWrap.nb .brands-button-color-tertiary { background-color:#000000; color:white; }
 
 #messagentWrap.nb .bg-lightgrey {background-color: #ebefff;}
 
@@ -113,26 +113,26 @@ html {font-size:16px !important}
 
 
 
-#messagentWrap.hbvl .brand-text-color-primary { color:#009fe3 }
-#messagentWrap.hbvl .brand-text-color-secondary { color:#000000 }
-#messagentWrap.hbvl .brand-text-color-tertiary { color:#000000 }
+#messagentWrap.hbvl .brands-text-color-primary { color:#009fe3 }
+#messagentWrap.hbvl .brands-text-color-secondary { color:#000000 }
+#messagentWrap.hbvl .brands-text-color-tertiary { color:#000000 }
 
-#messagentWrap.hbvl .brand-button-color-primary { background-color:#ffed00; color:black; }
-#messagentWrap.hbvl .brand-button-color-secondary { background-color:#009fe3; color:white; }
-#messagentWrap.hbvl .brand-button-color-tertiary { background-color:#000000; color:white; }
+#messagentWrap.hbvl .brands-button-color-primary { background-color:#ffed00; color:black; }
+#messagentWrap.hbvl .brands-button-color-secondary { background-color:#009fe3; color:white; }
+#messagentWrap.hbvl .brands-button-color-tertiary { background-color:#000000; color:white; }
 
 #messagentWrap.hbvl .bg-lightgrey {background-color: #FFEFCC;}
 
 
 
 
-#messagentWrap.gva .brand-text-color-primary { color:#e20714 }
-#messagentWrap.gva .brand-text-color-secondary { color:#000000 }
-#messagentWrap.gva .brand-text-color-tertiary { color:#000000 }
+#messagentWrap.gva .brands-text-color-primary { color:#e20714 }
+#messagentWrap.gva .brands-text-color-secondary { color:#000000 }
+#messagentWrap.gva .brands-text-color-tertiary { color:#000000 }
 
-#messagentWrap.gva .brand-button-color-primary { background-color:#e20714; color:white; }
-#messagentWrap.gva .brand-button-color-secondary { background-color:#000000; color:white; }
-#messagentWrap.gva .brand-button-color-tertiary { background-color:#000000; color:white; }
+#messagentWrap.gva .brands-button-color-primary { background-color:#e20714; color:white; }
+#messagentWrap.gva .brands-button-color-secondary { background-color:#000000; color:white; }
+#messagentWrap.gva .brands-button-color-tertiary { background-color:#000000; color:white; }
 
 #messagentWrap.gva .bg-lightgrey {background-color: #ffeff0;}
 /**colors**/

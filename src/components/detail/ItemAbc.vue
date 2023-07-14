@@ -144,7 +144,7 @@ const vergelijkbareScholenC = ref({
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 
-                <h3 class="d-inline brand-font-primary text-nm brand-text-color-primary ">
+                <h3 class="d-inline brands-font-primary text-nm brands-text-color-primary ">
                     Hoeveel leerlingen behalen A-, B- of C-attest?
                 </h3> 
 

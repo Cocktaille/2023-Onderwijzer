@@ -35,7 +35,7 @@ const props = defineProps({
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 
-                <h3 class="d-inline brand-font-primary text-nm brand-text-color-primary ">
+                <h3 class="d-inline brands-font-primary text-nm brands-text-color-primary ">
                     Advies van de onderwijsinspectie
                 </h3> 
 

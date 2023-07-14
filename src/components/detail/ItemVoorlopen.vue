@@ -127,7 +127,7 @@ const voorlopen_ophunjaar = ref({
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 
-                <h3 class="d-inline brand-font-primary text-nm brand-text-color-primary ">
+                <h3 class="d-inline brands-font-primary text-nm brands-text-color-primary ">
                     Hoeveel leerlingen lopen voor of achter ten opzichte van hun leeftijd?
                 </h3> 
 
