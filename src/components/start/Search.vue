@@ -54,7 +54,7 @@ const { results } = useFuse(input, data, options)
             </div>
 
             <div class="ow-title text-md mb-4 ">
-                <h3 class="brand-font-primary brand-text-color-primary text-normal text-lg">Het rapport van alle middelbare scholen</h3>
+                <h3 class="brand-font-primary brand-text-color-primary text-bold text-lg">Het rapport van alle middelbare scholen</h3>
             </div>
 
             <div class="text-center mt-4 mb-4">
@@ -145,5 +145,7 @@ const { results } = useFuse(input, data, options)
 .search-wrapper {background:#f5f5f9;}
 .searchBox-wrapper {background:#e0e0ec; padding:20px;}
 .disclaimer {max-width:640px; margin:0 auto}
-.searchLinkActive {color:#000068 !important; padding-bottom: 5px; border-bottom: 1px solid #000068; font-weight: bold;}
+.nb .searchLinkActive {color:#000068 !important; padding-bottom: 5px; border-bottom: 1px solid #000068; font-weight: bold;}
+.gva .searchLinkActive {color:#e20714 !important; padding-bottom: 5px; border-bottom: 1px solid #e20714; font-weight: bold;}
+.hbvl .searchLinkActive {color:#000000 !important; padding-bottom: 5px; border-bottom: 1px solid #000000; font-weight: bold;}
 </style>

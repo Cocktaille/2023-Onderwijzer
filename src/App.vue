@@ -67,11 +67,11 @@ const baseStore = useBaseStore()
 @import 'https://www.nieuwsblad.be/extra/static/messagent/templates/2022/css/bootstrap4_prefixed.css';
 
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-
+/* 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://markup.nieuwsblad.be/extra/assets/css/fonts.css");
 @import url("https://markup.hbvl.be/fonts/v2.0.0/fonts.css");
-@import url("https://markup.gva.be/fonts/v2.0.0/fonts.css");
+@import url("https://markup.gva.be/fonts/v2.0.0/fonts.css"); */
 
 #appwrapper {background:white}
 html {font-size:16px !important}
@@ -80,7 +80,7 @@ html {font-size:16px !important}
 
 /**fonts**/
 #messagentWrap.nb {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }
-#messagentWrap.nb .brand-font-primary {font-family:Produkt,Arial,Helvetica,sans-serif !important; font-weight: bold;}
+#messagentWrap.nb .brand-font-primary {font-family:Produkt,Arial,Helvetica,sans-serif !important; font-weight: bold !important;}
 #messagentWrap.nb .brand-font-secondary {font-family:Vitesse Black,sans-serif !important; }
 
 #messagentWrap.hbvl {font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;}

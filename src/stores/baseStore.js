@@ -29,6 +29,25 @@ export const useBaseStore = defineStore('baseStore', () => {
             brandName.value = "nieuwsblad" 
         }
 
+        //load css fonts per brand
+        let cssFontFile = document.createElement('link');
+        cssFontFile.setAttribute('rel', 'stylesheet');
+        
+        if(brandShortName.value == 'nb'){
+            cssFontFile.setAttribute('href', 'https://shared.mediahuis.be/fonts/nb/v3.0.0/fonts.css');
+        } 
+        else if(brandShortName.value == 'gva'){
+            cssFontFile.setAttribute('href', 'https://markup.gva.be/fonts/v2.0.0/fonts.css');
+        } 
+        else if(brandShortName.value == 'hbvl'){
+            cssFontFile.setAttribute('href', 'https://markup.hbvl.be/fonts/v2.0.0/fonts.css');
+        } 
+        else {
+            cssFontFile.setAttribute('href', 'https://shared.mediahuis.be/fonts/nb/v3.0.0/fonts.css');
+        }
+        
+        document.head.appendChild(cssFontFile);
+
     }
 
     
