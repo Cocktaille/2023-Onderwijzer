@@ -141,7 +141,7 @@ const voorlopen_ophunjaar = ref({
                             Op hun jaar
                         </div>
                         <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie " >
+                        <div class=" text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -153,7 +153,7 @@ const voorlopen_ophunjaar = ref({
                             1 jaar achter
                         </div>
                         <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink  text-md ">
@@ -165,7 +165,7 @@ const voorlopen_ophunjaar = ref({
                             2 jaar achter
                         </div>
                         <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie " >
+                        <div class=" text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -177,7 +177,7 @@ const voorlopen_ophunjaar = ref({
                             > 2 jaar achter
                         </div>
                         <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -189,7 +189,7 @@ const voorlopen_ophunjaar = ref({
                             1+ jaren voor
                         </div>
                         <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -210,7 +210,7 @@ const voorlopen_ophunjaar = ref({
                             Op hun jaar
                         </div>
                         <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie " >
+                        <div class=" text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -222,7 +222,7 @@ const voorlopen_ophunjaar = ref({
                             1 jaar achter
                         </div>
                         <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink  text-md ">
@@ -234,7 +234,7 @@ const voorlopen_ophunjaar = ref({
                             2 jaar achter
                         </div>
                         <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie " >
+                        <div class=" text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -246,7 +246,7 @@ const voorlopen_ophunjaar = ref({
                             > 2 jaar achter
                         </div>
                         <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
@@ -258,7 +258,7 @@ const voorlopen_ophunjaar = ref({
                             1+ jaren voor
                         </div>
                         <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie " >
+                        <div class="text-md text-in-pie brands-font-primary" >
                             {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
                         </div>
                         <div class="accent-color-pink text-md ">
