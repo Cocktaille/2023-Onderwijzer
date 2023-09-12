@@ -1,22 +1,42 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useBaseStore } from "@/stores/baseStore.js"
+import { useChartData } from "@/stores/chartData.js"
 import { useChartOptionsStore } from "@/stores/chartOptions.js"
 import { usePopperStore } from "@/stores/popperStore.js"
 
 import LeesOok from '@/components/LeesOok.vue'
 import ToolTipper from '@/components/ToolTipper.vue'
+import PieRowLeerlingenKenmerken from '@/components/detail/PieRowLeerlingenKenmerken.vue'
 
 
+
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  ArcElement
+  
+} from 'chart.js'
+import { Bar, Pie } from 'vue-chartjs'
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, ChartDataLabels )
 
 
 const baseStore = useBaseStore();
+const chartDataStore = useChartData();
 const chartOptionsStore = useChartOptionsStore();
 const popperStore = usePopperStore();
 
 const props = defineProps({
   item: String,
 })
+
 
 
 </script>
@@ -36,7 +56,7 @@ const props = defineProps({
                 </div>
                 
                 <h3 class="d-inline brands-font-primary text-nm brands-text-color-primary ">
-                    Advies van de onderwijsinspectie
+                    Leerlingenkenmerken die een mogelijke invloed hebben op de schoolloopbaan
                 </h3> 
 
                 <ToolTipper :tekst="popperStore.tooltip1" />
@@ -44,21 +64,23 @@ const props = defineProps({
              
             <div v-if="baseStore.showDetailItem == item" >
 
-                <div class="mt-3">
-                    <strong>{{baseStore.chosenSchoolDetail.advies}}</strong>
-                </div> 
+                <PieRowLeerlingenKenmerken />
 
-                <div class="mt-0 text-md">
-                    <span v-if="baseStore.chosenSchoolDetail.inspectiejaar != '' ">Inspectiejaar:</span> {{baseStore.chosenSchoolDetail.inspectiejaar}}
-                </div>
+                <LeesOok :articlePositions="[9,10]" />
 
-                <div class="mt-3">
-                    Via  <a :href="baseStore.chosenSchoolDetail.Link" target="_blank">deze link</a> vind je het volledige inspectierapport. Hier staan ook alle studierichtingen die de school aanbiedt. 
-                </div>             
 
-                <div class="mt-4">
-                    <LeesOok :articlePositions="[15,16]"   />
-                </div>
+                
+
+
+
+                
+                
+
+                
+
+
+                
+
 
             </div>
         </div>
@@ -68,7 +90,9 @@ const props = defineProps({
 </template>
 
 <style scoped>
-.item {background:#ffffff; padding:15px 20px; border-bottom:1px solid #e5e7eb}
-.item.item-open {background:#f7f9ff}
+
+
+
+
 
 </style>

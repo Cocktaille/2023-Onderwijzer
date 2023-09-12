@@ -41,9 +41,9 @@ const baseStore = useBaseStore()
                 <i class="fa-solid fa-circle-chevron-left"></i>  <span class="text-underline">Wijzig zoekopdracht</span>
               </div>
               <div  v-if="baseStore.currentScreen == 2 " @click="baseStore.currentScreen = 1 ; searchStore.userGemeenteInput = '' ">
-                <i class="fa-solid fa-circle-chevron-left"></i>  <span class="text-underline ">Terug naar overzicht</span>
+                <i class="fa-solid fa-circle-chevron-left"></i>  <span class="text-underline "> Terug</span>
               </div>
-              <div style="text-align:center; position:absolute; width:100%">
+              <div style="text-align:center; position:absolute; width:90%">
                 <img src="https://nieuwsblad-onderwijzer.lwprod.nl/images/onderwijzer-logo.svg" alt="" style="margin-top:-19px" />
               </div>
               
@@ -109,6 +109,7 @@ html {font-size:16px !important}
 #messagentWrap.nb .text-accent-lightblue { color:#29ABE2}
 #messagentWrap.nb .text-accent-purple { color:#5811F4}
 #messagentWrap.nb .text-accent-green { color:#00ED36}
+#messagentWrap.nb .text-accent-darkgreen { color:#3f7c4d}
 #messagentWrap.nb .text-accent-yellow { color:#F7D611}
 
 
@@ -294,5 +295,90 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.28); width:320px;}
 #messagentWrap .form-control-lg {
     height: calc(1.5em + 1.8rem + 2px); 
     }
+
+
+.item {background:#ffffff; padding:15px 20px; border-bottom:1px solid #e5e7eb}
+.item.item-open {background:#f7f9ff}
+
+
+
+/* PIE & BAR */
+
+.bar-height {max-height:200px; }
+.pie-height {min-height:140px}
+
+.text-in-pie {margin-top: -5.2rem;
+    width: 100%;
+    font-family: produkt;
+    font-size: 1.3rem !important;
+    color:#000068 !important
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+  .text-in-pie {
+    margin-top: -5rem;
+    width: 100%;
+    font-family: produkt;
+    font-size: 1.0rem !important;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+
+  .text-in-pie {
+    margin-top: -4.5rem;
+    width: 100%;
+    font-family: produkt;
+    font-size: 1.0rem !important;
+  }
+
+  #messagentWrap .pie-wrapper {
+    margin:10px !important;
+  }
+
+}
+
+@media screen and (max-width: 574px) {x
+
+    .bar-height {
+      max-height:200px; 
+      margin-bottom:50px;
+    }
+    
+    .text-in-pie {
+      margin-top: -4.5rem;
+      width: 100%;
+      font-family: produkt;
+      font-size: 1.0rem !important;
+    }
+}
+
+/* @media screen and (max-width: 474px) {
+    .bar-height {max-height:200px; margin-bottom:50px }
+    .text-in-pie {margin-top: -4.0rem;
+    width: 100%;
+    font-family: produkt;
+    font-size: 1.0rem !important;
+}
+} */
+
+@media screen and (max-width: 650px) {
+    .flex-container {
+        justify-content: flex-start;
+    }
+    .pie-left-col {margin-right:5%;}
+
+}
+
+
+@media screen and (max-width: 450px) {
+    .pie-left-col {width:120px; margin-right:5%; float:left;}
+}
+/* PIE */
+
 </style>
 

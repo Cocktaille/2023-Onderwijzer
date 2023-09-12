@@ -5,6 +5,7 @@ import { useChartOptionsStore } from "@/stores/chartOptions.js"
 import { usePopperStore } from "@/stores/popperStore.js"
 
 import LeesOok from '@/components/LeesOok.vue'
+import GeenCijfersBeschikbaar from '@/components/detail/GeenCijfersBeschikbaar.vue'
 import ToolTipper from '@/components/ToolTipper.vue'
 
 
@@ -135,140 +136,82 @@ const voorlopen_ophunjaar = ref({
             </div>
              
             <div v-if="baseStore.showDetailItem == item" >
-                <div class="row  mb-4 mt-0 text-center" style="white-space: nowrap;">
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            Op hun jaar
+                <div v-if="baseStore.chosenSchoolDetail.Normaal_procent != 'Geen cijfers beschikbaar' ">
+                    <div class="row  mb-4 mt-0 text-center" style="white-space: nowrap;">
+                        <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                            <div class=" text-md ">
+                                Op hun jaar
+                            </div>
+                            <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
+                            <div class=" text-md text-in-pie brands-font-primary" >
+                                {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
+                            </div>
+                            <div class="accent-color-pink text-md ">
+                                {{ baseStore.chosenSchoolDetail.Normaal }} leerlingen
+                            </div>
                         </div>
-                        <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
+                        <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                            <div class=" text-md ">
+                                1 jaar achter
+                            </div>
+                            <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
+                            <div class="text-md text-in-pie brands-font-primary" >
+                                {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                            </div>
+                            <div class="accent-color-pink  text-md ">
+                                {{ baseStore.chosenSchoolDetail.Een_jaar_achter }} leerlingen
+                            </div>
                         </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Normaal }} leerlingen
+                        <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                            <div class=" text-md ">
+                                2 jaar achter
+                            </div>
+                            <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
+                            <div class=" text-md text-in-pie brands-font-primary" >
+                                {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                            </div>
+                            <div class="accent-color-pink text-md ">
+                                {{ baseStore.chosenSchoolDetail.Twee_jaar_achter }} leerlingen
+                            </div>
                         </div>
+                        <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                            <div class=" text-md ">
+                                > 2 jaar achter
+                            </div>
+                            <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
+                            <div class="text-md text-in-pie brands-font-primary" >
+                                {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
+                            </div>
+                            <div class="accent-color-pink text-md ">
+                                {{ baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter }} leerlingen
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
+                            <div class="text-md ">
+                                1+ jaren voor
+                            </div>
+                            <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
+                            <div class="text-md text-in-pie brands-font-primary" >
+                                {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
+                            </div>
+                            <div class="accent-color-pink text-md ">
+                                {{ baseStore.chosenSchoolDetail.Een_of_meer_voor }} leerlingen
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            1 jaar achter
-                        </div>
-                        <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink  text-md ">
-                            {{ baseStore.chosenSchoolDetail.Een_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            2 jaar achter
-                        </div>
-                        <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Twee_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            > 2 jaar achter
-                        </div>
-                        <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class="text-md ">
-                            1+ jaren voor
-                        </div>
-                        <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Een_of_meer_voor }} leerlingen
-                        </div>
-                    </div>
-                    
                 </div>
 
+                <GeenCijfersBeschikbaar v-else />
 
-                <div class="mb-3 mt-5">
-                    <strong>Gemiddeld resultaat van vergelijkbare scholen</strong> <ToolTipper :tekst="popperStore.tooltip1" />
+
+                <div class="mb-3 mt-5 text-accent-blue">
+                    <strong>Gemiddeld resultaat van vergelijkbare scholen</strong>&nbsp;<ToolTipper :tekst="popperStore.tooltip1" />
                 </div>
 
-                <div class="row  mb-4 mt-0 text-center" style="white-space: nowrap;">
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            Op hun jaar
-                        </div>
-                        <Pie :data="ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Normaal_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Normaal }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            1 jaar achter
-                        </div>
-                        <Pie :data="eenjaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink  text-md ">
-                            {{ baseStore.chosenSchoolDetail.Een_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            2 jaar achter
-                        </div>
-                        <Pie :data="tweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class=" text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Twee_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Twee_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class=" text-md ">
-                            > 2 jaar achter
-                        </div>
-                        <Pie :data="meerdantweejaarachter" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.meer_dan_2_jaar_achter }} leerlingen
-                        </div>
-                    </div>
-                    <div class="col-3 col-sm-2 col-md-2  mt-4 p-0 pie-wrapper pie-height">
-                        <div class="text-md ">
-                            1+ jaren voor
-                        </div>
-                        <Pie :data="voorlopen_ophunjaar" :options="chartOptionsStore.pieOptions"  />
-                        <div class="text-md text-in-pie brands-font-primary" >
-                            {{ parseFloat(baseStore.chosenSchoolDetail.Een_of_meer_voor_procent.replace(/,/, '.')).toFixed(1) }}%
-                        </div>
-                        <div class="accent-color-pink text-md ">
-                            {{ baseStore.chosenSchoolDetail.Een_of_meer_voor }} leerlingen
-                        </div>
-                    </div>
-                    
-                </div>
+                Hier moet nog gemiddelde komen. Dit hele blok moet ook nog aangepast worden met de data uit chartData.js
 
-
+                <LeesOok :articlePositions="[7,8]" />
             </div>
         </div>
         
@@ -277,63 +220,14 @@ const voorlopen_ophunjaar = ref({
 </template>
 
 <style scoped>
-.item {background:#ffffff; padding:15px 20px; border-bottom:1px solid #e5e7eb}
-.item.item-open {background:#f7f9ff}
-
-.bar-height {max-height:200px; }
-.pie-height {min-height:140px}
-
-.text-in-pie {margin-top: -5.2rem;
-    width: 100%;
-    font-family: produkt;
-    font-size: 1.3rem !important;
-}
-
-
-
-
-
-@media screen and (max-width: 800px) {
-    .text-in-pie {margin-top: -5rem;
-    width: 100%;
-    font-family: produkt;
-    font-size: 1.0rem !important;
-}
-}
 
 @media screen and (max-width: 650px) {
-    .text-in-pie {margin-top: -4.5rem;
-    width: 100%;
-    font-family: produkt;
-    font-size: 1.0rem !important;
-}
-}
-
-@media screen and (max-width: 574px) {
-    .bar-height {max-height:200px; margin-bottom:50px }
-    .text-in-pie {margin-top: -4.5rem;
-    width: 100%;
-    font-family: produkt;
-    font-size: 1.0rem !important;
-}
-}
-
-/* @media screen and (max-width: 474px) {
-    .bar-height {max-height:200px; margin-bottom:50px }
-    .text-in-pie {margin-top: -4.0rem;
-    width: 100%;
-    font-family: produkt;
-    font-size: 1.0rem !important;
-}
-} */
-
-@media screen and (max-width: 650px) {
-    .text-in-pie {margin-top: 0rem;
+.text-in-pie {margin-top: 0rem;
     width: 100%;
     font-family: produkt;
     font-size: 1.2rem !important;
 }
 .accent-color-pink {color:#ef83f6}
-#messagentWrap .pie-wrapper {margin:10px !important;}
+
 }
 </style>

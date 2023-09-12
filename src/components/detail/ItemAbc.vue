@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useBaseStore } from "@/stores/baseStore.js"
+import { useChartData } from "@/stores/chartData.js"
 import { useChartOptionsStore } from "@/stores/chartOptions.js"
 import { usePopperStore } from "@/stores/popperStore.js"
 
@@ -27,6 +28,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
 
 
 const baseStore = useBaseStore();
+const chartDataStore = useChartData();
 const chartOptionsStore = useChartOptionsStore();
 const popperStore = usePopperStore();
 
@@ -37,97 +39,6 @@ const props = defineProps({
 
 
 
-const dataLeerlingenBehalenABC = ref({
-        
-        labels: [
-            ['A-attest', baseStore.chosenSchoolDetail.Aantal_A_attest + ' lln'], 
-            ['B-attest', baseStore.chosenSchoolDetail.Aantal_B_attest + ' lln'],
-            ['C-attest', baseStore.chosenSchoolDetail.Aantal_C_attest + ' lln']
-        ], /*hidden in settings */
-        datasets: [
-            
-            { 
-            data: 
-                [ 
-                    parseFloat(baseStore.chosenSchoolDetail.A_procent.replace(/,/, '.')).toFixed(1), 
-                    parseFloat(baseStore.chosenSchoolDetail.B_procent.replace(/,/, '.')).toFixed(1), 
-                    parseFloat(baseStore.chosenSchoolDetail.C_procent.replace(/,/, '.')).toFixed(1)
-                ],
-                backgroundColor: '#F75821',
-                hoverBackgroundColor: "#F75821",
-                datalabels: {
-                    formatter: function(value, context) {
-                        return value + "%" ;
-                    },
-                    align: 'end',
-                    anchor: 'end',
-                    font: {
-                        size: 11,
-                        weight: 'bold',
-                    },
-                    backgroundColor: '#ffffff',
-                    opacity:0.7
-                    
-                },
-
-                
-
-            },
-            { data: 
-                [ 
-                    100 - parseFloat(baseStore.chosenSchoolDetail.A_procent.replace(/,/, '.')).toFixed(1), 
-                    100 - parseFloat(baseStore.chosenSchoolDetail.B_procent.replace(/,/, '.')).toFixed(1), 
-                    100 - parseFloat(baseStore.chosenSchoolDetail.C_procent.replace(/,/, '.')).toFixed(1)
-                ],
-                backgroundColor: "#feebe4",
-                hoverBackgroundColor: "#feebe4",
-                datalabels: {
-                    display: false,
-                }
-                
-            }
-        ],
-        
-        
-      });
-
-
-const vergelijkbareScholenA = ref({
-    datasets: [
-        {
-            backgroundColor: ['#F75821', '#feebe4'],
-            hoverBackgroundColor: ['#F75821', '#feebe4'],
-            data: [83.33, 100-83.33],
-            datalabels: {
-                display: false,
-            }  
-        }
-    ],
-})
-const vergelijkbareScholenB = ref({
-    datasets: [
-        {
-            backgroundColor: ['#F75821', '#feebe4'],
-            hoverBackgroundColor: ['#F75821', '#feebe4'],
-            data: [5.4, 100-5.4],
-            datalabels: {
-                display: false,
-            }  
-        }
-    ],
-})
-const vergelijkbareScholenC = ref({
-    datasets: [
-        {
-            backgroundColor: ['#F75821', '#feebe4'],
-            hoverBackgroundColor: ['#F75821', '#feebe4'],
-            data: [6.94, 100-6.94],
-            datalabels: {
-                display: false,
-            }  
-        }
-    ],
-})
 </script>
 
 <template>
@@ -155,29 +66,36 @@ const vergelijkbareScholenC = ref({
                 <div class="row mb-3 mt-4" >
                     <div class="col-sm-4 bar-height" >
                         
-                        <Bar :data="dataLeerlingenBehalenABC" :options="chartOptionsStore.barOptions" />
-                        
-                        <div class="rows text-center text-md mt-2">
-                            <div class="col-4 float-left">
-                                <strong>A-attest</strong><br />
-                                {{ baseStore.chosenSchoolDetail.Aantal_A_attest }} lln
-
-                            </div>
-                            <div class="col-4 float-left">
-                                <strong>B-attest</strong><br />
-                                {{ baseStore.chosenSchoolDetail.Aantal_B_attest }} lln
-
-                            </div>
-                            <div class="col-4 float-left">
-                                <strong>C-attest</strong><br />
-                                {{ baseStore.chosenSchoolDetail.Aantal_C_attest }} lln
-
+                        <div v-if="baseStore.chosenSchoolDetail.Aantal_A_attest != 'Geen cijfers beschikbaar'">
+                            <Bar :data="chartDataStore.dataLeerlingenBehalenABC" :options="chartOptionsStore.barOptions" />
+                            
+                            <div class="rows text-center text-md mt-2 text-accent-blue">
+                                <div class="col-4 float-left">
+                                    <strong>A-attest</strong><br />
+                                    {{ baseStore.chosenSchoolDetail.Aantal_A_attest }} lln
+    
+                                </div>
+                                <div class="col-4 float-left">
+                                    <strong>B-attest</strong><br />
+                                    {{ baseStore.chosenSchoolDetail.Aantal_B_attest }} lln
+    
+                                </div>
+                                <div class="col-4 float-left">
+                                    <strong>C-attest</strong><br />
+                                    {{ baseStore.chosenSchoolDetail.Aantal_C_attest }} lln
+    
+                                </div>
                             </div>
                         </div>
+
+                        <div v-else class="brands-text-color-primary pt-3">
+                            <em>Er zijn geen cijfers voor deze school beschikbaar.</em>
+                        </div>
+
                     </div>
     
                     <div class="col-sm-8 col-md-7 offset-md-1" >
-                        <div class="mb-3 mt-3">
+                        <div class="mb-3 mt-3 text-accent-blue">
                             <strong>Gemiddeld resultaat van vergelijkbare scholen</strong> <ToolTipper :tekst="popperStore.tooltip1" />
                         </div>
     
@@ -185,28 +103,28 @@ const vergelijkbareScholenC = ref({
                             <div class="row mb-4 " >
                                 <div class="col-4 col-md-3" style="height: auto ">
                                     <div class="text-center text-md text-bold text-accent-orange">
-                                        ??? > ???
+                                        {{baseStore.chosenSchoolDetail.Ondergrens_A}} > {{baseStore.chosenSchoolDetail.Bovengrens_A}}
                                     </div>
-                                    <Pie :data="vergelijkbareScholenA" :options="chartOptionsStore.pieOptions" />
-                                    <div class="text-center text-md text-bold">
+                                    <Pie :data="chartDataStore.vergelijkbareScholenA" :options="chartOptionsStore.pieOptions" />
+                                    <div class="text-center text-md text-bold text-accent-blue">
                                         A-attest
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-3" style="height: auto">
                                     <div class="text-center text-md text-bold text-accent-orange">
-                                        ??? > ???
+                                        {{baseStore.chosenSchoolDetail.Ondergrens_B}} > {{baseStore.chosenSchoolDetail.Bovengrens_B}}
                                     </div>
-                                    <Pie :data="vergelijkbareScholenB" :options="chartOptionsStore.pieOptions" />
-                                    <div class="text-center text-md text-bold">
+                                    <Pie :data="chartDataStore.vergelijkbareScholenB" :options="chartOptionsStore.pieOptions" />
+                                    <div class="text-center text-md text-bold text-accent-blue">
                                         B-attest
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-3" style="height: auto">
                                     <div class="text-center text-md text-bold text-accent-orange">
-                                        ??? > ???
+                                        {{baseStore.chosenSchoolDetail.Ondergrens_C}} > {{baseStore.chosenSchoolDetail.Bovengrens_C}}
                                     </div>
-                                    <Pie :data="vergelijkbareScholenC" :options="chartOptionsStore.pieOptions" />
-                                    <div class="text-center text-md text-bold">
+                                    <Pie :data="chartDataStore.vergelijkbareScholenC" :options="chartOptionsStore.pieOptions" />
+                                    <div class="text-center text-md text-bold text-accent-blue">
                                         C-attest
                                     </div>
                                 </div>
@@ -217,9 +135,9 @@ const vergelijkbareScholenC = ref({
                     </div>
                 </div>
 
-<div class="mt-4">
-    <LeesOok />
-</div>
+                <div class="mt-4">
+                    <LeesOok :articlePositions="[5,6]" />
+                </div>
 
             </div>
         </div>
@@ -229,12 +147,5 @@ const vergelijkbareScholenC = ref({
 </template>
 
 <style scoped>
-.item {background:#ffffff; padding:15px 20px; border-bottom:1px solid #e5e7eb}
-.item.item-open {background:#f7f9ff}
 
-.bar-height {max-height:200px; }
-
-@media screen and (max-width: 574px) {
-    .bar-height {max-height:200px; margin-bottom:50px }
-}
 </style>

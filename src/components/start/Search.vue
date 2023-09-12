@@ -2,11 +2,13 @@
 import { ref, onMounted, computed } from "vue"
 import { useBaseStore } from "@/stores/baseStore.js"
 import { useSearchStore } from "@/stores/searchStore.js"
+import { useArticleStore } from "@/stores/articleStore.js"
 
 import LeesOok from '@/components/LeesOok.vue'
 
 const searchStore = useSearchStore()
 const baseStore = useBaseStore()
+const articleStore = useArticleStore();
 
 import { useFuse } from '@vueuse/integrations/useFuse'
 
@@ -131,7 +133,7 @@ const { results } = useFuse(input, data, options)
         <div class="disclaimer p-3 text-sm">
             Het Nieuwsblad verzamelde tal van gegevens bij de onderwijsadministratie over alle middelbare scholen in Vlaanderen en Brussel. Hoeveel leerlingen stromen door naar het hoger onderwijs en hoe doen ze het daar? Hoeveel halen er een B- of C-attest? Hoeveel zittenblijvers zijn er en hoe divers is de school? In deze tool kan je per school alle info terugvinden. <a href="https://www.nieuwsblad.be/cnt/dmf20230314_94374317?utm_source=nieuwsblad&utm_medium=tool&utm_campaign=onderwijsdossier" target="_blank">Lees hier</a> hoe we te werk gingen en waar de cijfers vandaan komen.
 
-            <LeesOok />
+            <LeesOok :articlePositions="[1,2,3]" v-if="articleStore.articlesAll.length > 0" />
 
         </div>
 

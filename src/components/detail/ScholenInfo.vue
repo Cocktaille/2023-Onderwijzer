@@ -108,7 +108,7 @@ function isInViewport(el) {
                             </div>
                         </div>
 
-                        <LeesOok />
+                        <LeesOok :articlePositions="[4]" />
 
                     </div>
                 </Transition>
@@ -117,9 +117,12 @@ function isInViewport(el) {
                 
 
                 <div class="scholenfiche brands-text-color-primary pt-3">
-                    <span class="cursor-pointer brands-font-primary text-md " @click="showScholenFiche()">Bekijk scholenfiche</span> 
-                    <span v-if="scholenFicheOpen == true ">&nbsp; <i class="fa-solid fa-circle-chevron-up"></i></span>
-                    <span v-if="scholenFicheOpen == false ">&nbsp; <i class="fa-solid fa-circle-chevron-down"></i></span>
+                    <span class="cursor-pointer brands-font-primary text-md " @click="showScholenFiche()">
+                        Bekijk scholenfiche 
+                        <span v-if="scholenFicheOpen == true ">&nbsp; <i class="fa-solid fa-circle-chevron-up"></i></span>
+                        <span v-if="scholenFicheOpen == false ">&nbsp; <i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </span> 
+                    
                 </div>
 
             </div>

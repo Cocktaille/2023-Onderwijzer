@@ -6,6 +6,7 @@ import ScholenInfo from '@/components/detail/ScholenInfo.vue'
 import LoaderSpinner from '@/components/LoaderSpinner.vue'
 import ItemAbc from '@/components/detail/ItemAbc.vue'
 import ItemVoorlopen from '@/components/detail/ItemVoorlopen.vue'
+import ItemLeerlingenKenmerken from '@/components/detail/ItemLeerlingenKenmerken.vue'
 import ItemInspectie from '@/components/detail/ItemInspectie.vue'
 import LeesWijzer from '@/components/detail/LeesWijzer.vue'
 
@@ -35,6 +36,9 @@ const baseStore = useBaseStore();
             </div>
             <div class="">
                 <ItemVoorlopen :item="'voorlopen'" />
+            </div>
+            <div class="">
+                <ItemLeerlingenKenmerken :item="'leerlingenkenmerken'" />
             </div>
             <div class="">
                 <ItemInspectie :item="'inspectie'" />
